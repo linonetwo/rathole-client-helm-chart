@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "rathole-client.fullname" . }}
+data:
+  client.toml: |
+    [client]
+    remote_addr = "{{ .Values.config.remote_addr }}"
+    [client.services.my_nas_ssh]
+    token = "{{ .Values.config.token }}"
+    local_addr = "{{ .Values.config.local_addr }}"
